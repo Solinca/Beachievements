@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec9f45f8b416294ca217fb1ba0ac88c, type: 3}
+  m_Name: NewHeight
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 6961653080833796888, guid: 41e22e359845e544e92120380fc863e8, type: 3}
+  title: I'm so high!
+  descritpion: What a magnificient view! It's a shame you are only seeing blue though...
