@@ -2,59 +2,26 @@
 
 public class EnterSecretWall : MonoBehaviour
 {
-    public GameObject wall;
-    public Camera cameraMovement;
-
-    private CameraMovement script;
-    private Renderer wallRenderer;
-    private bool fading = false;
-    private float fadeTo;
-    private float spendTime = 0;
-    private bool gotAchievement = false;
-
-    private void Start()
-    {
-        script = cameraMovement.GetComponent<CameraMovement>();
-        wallRenderer = wall.GetComponent<Renderer>();
-    }
+    public Animator animator;
+    public CameraMovement cameraMovement;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.name == "Secret1Entrance")
         {
-            fading = true;
-            spendTime = 0;
-            fadeTo = 0;
-            script.minX = -9.12f;
+            animator.SetBool("Entered", true);
+            cameraMovement.minX = -9.12f;
  
-            if (!gotAchievement)
+            if (!AchievementManager.Instance.IsCollected("HiddenRoom"))
             {
-                AchievementManager.Instance.DisplayAchievement("HiddenRoom");
-                gotAchievement = true;
+                AchievementManager.Instance.CollectAchievement("HiddenRoom");
             }
         }
 
         if (collider.gameObject.name == "Secret1Exit")
         {
-            fading = true;
-            spendTime = 0;
-            fadeTo = 1;
-            script.minX = 0;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (fading)
-        {
-            float time = Mathf.Lerp(wallRenderer.material.color.a, fadeTo, spendTime);
-            wallRenderer.material.color = new Color(wallRenderer.material.color.r, wallRenderer.material.color.g, wallRenderer.material.color.b, time);
-            spendTime += Time.deltaTime;
-
-            if (spendTime >= 1)
-            {
-                fading = false;
-            }
+            animator.SetBool("Entered", false);
+            cameraMovement.minX = 0f;
         }
     }
 }

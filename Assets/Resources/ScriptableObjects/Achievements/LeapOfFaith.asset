@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec9f45f8b416294ca217fb1ba0ac88c, type: 3}
-  m_Name: HiddenRoom
+  m_Name: LeapOfFaith
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: daf8de6beae7eaf44a4d5a330652e6d2, type: 3}
-  title: X-RAY Vision
-  descritpion: "You discovered a hidden room. You can do whatever you want without
-    being seen ( \u0361\xB0 \u035C\u0296 \u0361\xB0)"
+  sprite: {fileID: 0}
+  title: Leap of faith
+  descritpion: Wow you are willing to die for an emerald ? You should thank me for
+    saving ya.

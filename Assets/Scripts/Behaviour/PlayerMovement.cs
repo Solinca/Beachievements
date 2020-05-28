@@ -2,8 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 0.15f;
-    private float jumpSpeed = 800f;
+    private readonly float speed = 0.15f;
+    private readonly float jumpSpeed = 800f;
     private float input;
     private bool jumping = false;
     private Rigidbody2D playerRigidbody;

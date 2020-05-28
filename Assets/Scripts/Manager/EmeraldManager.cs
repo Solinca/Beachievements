@@ -10,7 +10,6 @@ public class EmeraldManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         } else
         {
             Destroy(gameObject);
@@ -37,7 +36,7 @@ public class EmeraldManager : MonoBehaviour
 
         if (emeraldObtained == emeraldTotal)
         {
-            AchievementManager.Instance.DisplayAchievement("EmeraldCollector");
+            AchievementManager.Instance.CollectAchievement("EmeraldCollector");
         }
     }
 }

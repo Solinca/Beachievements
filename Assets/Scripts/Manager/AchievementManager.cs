@@ -13,17 +13,20 @@ public class AchievementManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         } else
         {
             Destroy(gameObject);
         }
+
+        achievementList = Resources.LoadAll("ScriptableObjects/Achievements");
     }
 
-    public List<Achievement> achievementList;
+    private void Start()
+    {
+        DisplayAchievement("Tutorial");
+    }
 
     public AudioSource audioSource;
-
     public Image achievementImage;
     public RectTransform achievementContainer;
     public TextMeshProUGUI achievementTitleText;
@@ -31,27 +34,59 @@ public class AchievementManager : MonoBehaviour
 
     private bool opening = false;
     private bool processing = false;
+    private Object[] achievementList;
     private List<string> queuedAchievements = new List<string>();
+    private List<string> collectedAchievements = new List<string>();
 
-    public void DisplayAchievement(string achievementName)
+    public void CollectAchievement(string name)
+    {
+        collectedAchievements.Add(name);
+        DisplayAchievement(name);
+    }
+
+    public bool IsCollected(string name)
+    {
+        return collectedAchievements.Contains(name);
+    }
+
+    private void DisplayAchievement(string name)
     {
         if (processing)
         {
-            queuedAchievements.Add(achievementName);
+            queuedAchievements.Add(name);
         } else
         {
-            foreach (Achievement achievement in achievementList)
+            Achievement achievement = RetrieveAchievement(name);
+
+            if (achievement == null)
             {
-                if (achievement.name == achievementName)
-                {
-                    achievementImage.sprite = achievement.sprite;
-                    achievementTitleText.SetText(achievement.title);
-                    achievementDescriptionText.SetText(achievement.descritpion);
-                    opening = processing = true;
-                    audioSource.Play();
-                }
+                return;
+            }
+
+            UpdateUI(achievement);
+            opening = processing = true;
+            audioSource.Play();
+        }
+    }
+
+    private void UpdateUI(Achievement achievement)
+    {
+        achievementImage.sprite = achievement.sprite;
+        achievementTitleText.SetText(achievement.title);
+        achievementDescriptionText.SetText(achievement.descritpion);
+    }
+
+    private Achievement RetrieveAchievement(string name)
+    {
+        foreach (Achievement achievement in achievementList)
+        {
+            if (achievement.name == name)
+            {
+                return achievement;
             }
         }
+
+        return null;
     }
 
     private void FixedUpdate()
