@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,9 @@ public class AchievementManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        achievementList = Resources.LoadAll("ScriptableObjects/Achievements");
+        Object[] achievementList = Resources.LoadAll("ScriptableObjects/Achievements");
+
+        achievementDictionnary = achievementList.ToDictionary(x => x.name, x => (Achievement) x);
     }
 
     private void Start()
@@ -34,8 +37,8 @@ public class AchievementManager : MonoBehaviour
 
     private bool opening = false;
     private bool processing = false;
-    private Object[] achievementList;
-    private List<string> queuedAchievements = new List<string>();
+    private Dictionary<string, Achievement> achievementDictionnary;
+    private Queue<string> queuedAchievements = new Queue<string>();
     private List<string> collectedAchievements = new List<string>();
 
     public void CollectAchievement(string name)
@@ -53,7 +56,7 @@ public class AchievementManager : MonoBehaviour
     {
         if (processing)
         {
-            queuedAchievements.Add(name);
+            queuedAchievements.Enqueue(name);
         } else
         {
             Achievement achievement = RetrieveAchievement(name);
@@ -78,15 +81,7 @@ public class AchievementManager : MonoBehaviour
 
     private Achievement RetrieveAchievement(string name)
     {
-        foreach (Achievement achievement in achievementList)
-        {
-            if (achievement.name == name)
-            {
-                return achievement;
-            }
-        }
-
-        return null;
+        return achievementDictionnary.ContainsKey(name) ? achievementDictionnary[name] : null;
     }
 
     private void FixedUpdate()
@@ -105,7 +100,7 @@ public class AchievementManager : MonoBehaviour
 
     private IEnumerator CloseWindow()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         while (achievementContainer.anchoredPosition.y >= -76f)
         {
@@ -117,8 +112,7 @@ public class AchievementManager : MonoBehaviour
 
         if (queuedAchievements.Count > 0)
         {
-            DisplayAchievement(queuedAchievements[0]);
-            queuedAchievements.RemoveAt(0);
+            DisplayAchievement(queuedAchievements.Dequeue());
         }
     }
 }
