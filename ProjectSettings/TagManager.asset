@@ -17,11 +17,11 @@ TagManager:
   - Background
   - Player
   - Ground
-  - Secret
-  - Emeralds
+  - SecretEntrance
+  - SecretExit
   - Spring
   - Achievement
-  - 
+  - Emeralds
   - 
   - 
   - 

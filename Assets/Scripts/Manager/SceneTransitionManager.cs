@@ -52,9 +52,11 @@ public class SceneTransitionManager : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         AsyncOperation changeScene = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+        yield return new WaitForSeconds(0.3f);
 
         endSceneAnimation.SetBool("next_scene", false);
 

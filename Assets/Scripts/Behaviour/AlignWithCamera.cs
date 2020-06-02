@@ -10,18 +10,23 @@ public class AlignWithCamera : MonoBehaviour
     private void Awake()
     {
         Align();
-        lastScreenSize = new Vector2(Screen.width, Screen.height);
+        lastScreenSize = GetScreenSize();
     }
 
     private void Update()
     {
-        Vector2 screenSize = new Vector2(Screen.width, Screen.height);
+        Vector2 screenSize = GetScreenSize();
 
         if (this.lastScreenSize != screenSize)
         {
             this.lastScreenSize = screenSize;
             Align();
         }
+    }
+
+    private Vector2 GetScreenSize()
+    {
+        return new Vector2(Screen.width, Screen.height);
     }
 
     private void Align()

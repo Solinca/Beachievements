@@ -7,7 +7,7 @@ public class EnterSecretWall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.name == "Secret1Entrance")
+        if (collider.gameObject.layer == LayerMask.NameToLayer("SecretEntrance"))
         {
             animator.SetBool("Entered", true);
             cameraMovement.minX = -9.12f;
@@ -18,7 +18,7 @@ public class EnterSecretWall : MonoBehaviour
             }
         }
 
-        if (collider.gameObject.name == "Secret1Exit")
+        if (collider.gameObject.layer == LayerMask.NameToLayer("SecretExit"))
         {
             animator.SetBool("Entered", false);
             cameraMovement.minX = 0f;
