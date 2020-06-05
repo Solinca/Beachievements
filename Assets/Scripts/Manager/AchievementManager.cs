@@ -83,6 +83,8 @@ public class AchievementManager : MonoBehaviour
 
     public void ProcessNextQueue()
     {
+        processing = false;
+
         if (queuedAchievements.Count > 0)
         {
             DisplayAchievement(queuedAchievements.Dequeue());

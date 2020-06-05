@@ -61,38 +61,22 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OpenMenu()
     {
-        PreviousMenu();
-
-        gameObject.SetActive(true);
-
-        Time.timeScale = 0f;
-
-        Camera.main.GetComponent<AudioSource>().Pause();
-
-        if (SceneTransitionManager.Instance.IsTransitioning())
+        if (SceneTransitionManager.Instance.IsProcessing())
         {
-            SceneTransitionManager.Instance.audioEnd.Pause();
-            SceneTransitionManager.Instance.audioStart.Pause();
+            return;
         }
+
+        PreviousMenu();
+        gameObject.SetActive(true);
+        Time.timeScale = 0f;
+        Camera.main.GetComponent<AudioSource>().Pause();
     }
 
     public void ResumeGame()
     {
         gameObject.SetActive(false);
-
         Time.timeScale = 1f;
-
-        if (SceneTransitionManager.Instance.GetTransitionState() == SceneTransitionState.Start)
-        {
-            SceneTransitionManager.Instance.audioStart.Play();
-        } else if (SceneTransitionManager.Instance.GetTransitionState() == SceneTransitionState.End)
-        {
-            SceneTransitionManager.Instance.audioEnd.Play();
-            Camera.main.GetComponent<AudioSource>().Play();
-        } else
-        {
-            Camera.main.GetComponent<AudioSource>().Play();
-        }
+        Camera.main.GetComponent<AudioSource>().Play();
     }
 
     public void ReturnToMainMenu()

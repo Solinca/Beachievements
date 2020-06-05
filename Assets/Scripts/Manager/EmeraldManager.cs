@@ -21,18 +21,16 @@ public class EmeraldManager : MonoBehaviour
     public TextMeshProUGUI emeraldTotalText;
 
     private int emeraldObtained = 0;
-    private int emeraldTotal = 0;
+    private int emeraldTotal;
 
     private void Start()
     {
-        emeraldTotal = emeraldContainer.childCount;
-        emeraldTotalText.SetText(emeraldTotal.ToString());
+        emeraldTotalText.SetText((emeraldTotal = emeraldContainer.childCount).ToString());
     }
 
     public void CollectEmerald()
     {
-        emeraldObtained++;
-        emeraldObtainedText.SetText(emeraldObtained.ToString());
+        emeraldObtainedText.SetText((++emeraldObtained).ToString());
 
         if (emeraldObtained == emeraldTotal)
         {

@@ -23,20 +23,23 @@ public class SceneTransitionManager : MonoBehaviour
     public AudioSource audioEnd;
     public CanvasGroup canvasGroup;
 
-    private SceneTransitionState transitioning = SceneTransitionState.None;
-
-    public bool IsTransitioning()
+    private enum SceneTransitionState
     {
-        return transitioning != SceneTransitionState.None;
+        Processing,
+        None
     }
 
-    public SceneTransitionState GetTransitionState()
+    private SceneTransitionState transitioning = SceneTransitionState.None;
+
+    public bool IsProcessing()
     {
-        return transitioning;
+        return transitioning == SceneTransitionState.Processing;
     }
 
     public void MoveToNextScene()
     {
+        transitioning = SceneTransitionState.Processing;
+
         endSceneAnimation.SetBool("next_scene", true);
 
         canvasGroup.blocksRaycasts = true;
@@ -44,8 +47,6 @@ public class SceneTransitionManager : MonoBehaviour
         Camera.main.GetComponent<AudioSource>().Stop();
  
         audioStart.Play();
-
-        transitioning = SceneTransitionState.Start;
 
         StartCoroutine("LoadNextScene");
     }
@@ -62,19 +63,10 @@ public class SceneTransitionManager : MonoBehaviour
 
         canvasGroup.blocksRaycasts = false;
 
-        transitioning = SceneTransitionState.End;
-
         audioEnd.Play();
 
         yield return new WaitForSeconds(1f);
 
         transitioning = SceneTransitionState.None;
     }
-}
-
-public enum SceneTransitionState
-{
-    None,
-    Start,
-    End
 }
