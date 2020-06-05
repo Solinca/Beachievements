@@ -25,12 +25,14 @@ public class EmeraldManager : MonoBehaviour
 
     private void Start()
     {
-        emeraldTotalText.SetText((emeraldTotal = emeraldContainer.childCount).ToString());
+        emeraldTotal = emeraldContainer.childCount;
+        emeraldTotalText.SetText(emeraldTotal.ToString());
     }
 
     public void CollectEmerald()
     {
-        emeraldObtainedText.SetText((++emeraldObtained).ToString());
+        emeraldObtained++;
+        emeraldObtainedText.SetText(emeraldObtained.ToString());
 
         if (emeraldObtained == emeraldTotal)
         {

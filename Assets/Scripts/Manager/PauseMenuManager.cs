@@ -74,14 +74,18 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        ResumeTime();
         Camera.main.GetComponent<AudioSource>().Play();
     }
 
     public void ReturnToMainMenu()
     {
+        ResumeTime();
         SceneManager.LoadScene(0);
+    }
+
+    private void ResumeTime()
+    {
         gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
