@@ -2,8 +2,6 @@
 
 public class EnnemyCollision : MonoBehaviour
 {
-    public Transform respawn;
-    public Transform player;
     public GameObject[] instructions;
     
     private int currentInstructionIndex = 0;
@@ -37,7 +35,7 @@ public class EnnemyCollision : MonoBehaviour
 
     private void RepositionPlayer()
     {
-        player.position = respawn.position;
+        transform.position = RespawnCollision.GetCurrentRespawnPosition();
     }
 
     private void ChangeText()

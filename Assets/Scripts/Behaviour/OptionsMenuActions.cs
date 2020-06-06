@@ -2,7 +2,7 @@
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class MainMenuAction : MonoBehaviour
+public class OptionsMenuActions : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject optionsMenu;
@@ -10,15 +10,10 @@ public class MainMenuAction : MonoBehaviour
     public Slider musicSlider;
     public Slider effectSlider;
 
-    public void StartGame()
+    public void OpenOptionsMenu()
     {
-        SceneTransitionManager.Instance.MoveToNextScene();
-    }
-
-    public void OptionsMenu()
-    {
-        optionsMenu.SetActive(true);
         mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
 
         audioMixer.GetFloat("MusicVolume", out float musicValue);
         audioMixer.GetFloat("EffectVolume", out float effectValue);
@@ -39,12 +34,7 @@ public class MainMenuAction : MonoBehaviour
 
     public void PreviousMenu()
     {
-        optionsMenu.SetActive(false);
         mainMenu.SetActive(true);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
+        optionsMenu.SetActive(false);
     }
 }

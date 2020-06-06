@@ -1404,6 +1404,7 @@ GameObject:
   - component: {fileID: 636410758}
   - component: {fileID: 636410757}
   - component: {fileID: 636410761}
+  - component: {fileID: 636410762}
   m_Layer: 5
   m_Name: PauseMenuManager
   m_TagString: Untagged
@@ -1503,6 +1504,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a71bf7db78603884d9b4dbf45072b9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1488989426}
+  optionsMenu: {fileID: 268890187}
+--- !u!114 &636410762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636410756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5af2923ec470c949a1d51a2d7e7040d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1488989426}
@@ -2046,7 +2061,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 636410761}
+      - m_Target: {fileID: 636410762}
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -2388,7 +2403,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 636410761}
+      - m_Target: {fileID: 636410762}
         m_MethodName: PreviousMenu
         m_Mode: 1
         m_Arguments:
@@ -2982,7 +2997,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 636410761}
+      - m_Target: {fileID: 636410762}
         m_MethodName: SetEffectVolume
         m_Mode: 0
         m_Arguments:
@@ -4743,8 +4758,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 636410761}
-        m_MethodName: OptionsMenu
+      - m_Target: {fileID: 636410762}
+        m_MethodName: OpenOptionsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

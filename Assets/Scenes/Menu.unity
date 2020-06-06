@@ -697,7 +697,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1935576975}
+      - m_Target: {fileID: 1935576976}
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1935576975}
+      - m_Target: {fileID: 1935576976}
         m_MethodName: PreviousMenu
         m_Mode: 1
         m_Arguments:
@@ -2167,7 +2167,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1935576975}
+      - m_Target: {fileID: 1935576976}
         m_MethodName: SetEffectVolume
         m_Mode: 0
         m_Arguments:
@@ -3951,8 +3951,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1935576975}
-        m_MethodName: OptionsMenu
+      - m_Target: {fileID: 1935576976}
+        m_MethodName: OpenOptionsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4027,6 +4027,7 @@ GameObject:
   - component: {fileID: 1935576972}
   - component: {fileID: 1935576971}
   - component: {fileID: 1935576975}
+  - component: {fileID: 1935576976}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4128,6 +4129,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c6604ff6bf8e374bb05938c80c02b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1935576976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935576970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5af2923ec470c949a1d51a2d7e7040d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 925881702}
