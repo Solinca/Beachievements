@@ -47,6 +47,10 @@ public class EnnemyCollision : MonoBehaviour
     private void DestroyInstructionCrab(GameObject instructionCrab)
     {
         instructionCrab.SetActive(false);
-        AchievementManager.Instance.CollectAchievement("CrabFight");
+
+        if (AchievementManager.Instance)
+        {
+            AchievementManager.Instance.CollectAchievement("CrabFight");
+        }
     }
 }

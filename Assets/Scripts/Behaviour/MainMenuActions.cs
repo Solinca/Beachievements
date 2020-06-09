@@ -4,7 +4,10 @@ public class MainMenuActions : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneTransitionManager.Instance.MoveToNextScene();
+        if (SceneTransitionManager.Instance)
+        {
+            SceneTransitionManager.Instance.MoveToNextScene();
+        }
     }
 
     public void QuitGame()

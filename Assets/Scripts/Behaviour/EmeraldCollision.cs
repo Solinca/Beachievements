@@ -9,7 +9,11 @@ public class EmeraldCollision : MonoBehaviour
         if (collider.gameObject.name == "Player")
         {
             animator.SetBool("collected", true);
-            EmeraldManager.Instance.CollectEmerald();
+
+            if (EmeraldManager.Instance)
+            {
+                EmeraldManager.Instance.CollectEmerald();
+            }
         }
     }
 }

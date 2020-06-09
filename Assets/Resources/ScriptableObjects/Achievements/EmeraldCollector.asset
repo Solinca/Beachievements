@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c0273b52a8a2ecb40876fb1ad6b8864b, type: 3}
   title: Ohh shiny!
-  descritpion: You collected every emeralds in the game. You are rich now!
+  description: You collected every emeralds in the game. You are rich now!
+  hint: Collect every shiny stuff in the game.
+  collected: 0
+  order: 6

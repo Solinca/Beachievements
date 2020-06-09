@@ -12,7 +12,7 @@ public class EnterSecretWall : MonoBehaviour
             animator.SetBool("Entered", true);
             cameraMovement.minX = -9.12f;
  
-            if (!AchievementManager.Instance.IsCollected("HiddenRoom"))
+            if (AchievementManager.Instance)
             {
                 AchievementManager.Instance.CollectAchievement("HiddenRoom");
             }

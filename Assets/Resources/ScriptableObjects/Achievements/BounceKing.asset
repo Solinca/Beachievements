@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 1d7e0e51acf323340bb698e457e1c477, type: 3}
   title: Boing!
-  descritpion: You easily mastered the spring! You can't beat Sonic though...
+  description: You easily mastered the spring! You can't beat Sonic though...
+  hint: Look for the first place where there is a boing sound.
+  collected: 0
+  order: 3

@@ -68,5 +68,10 @@ public class SceneTransitionManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         transitioning = SceneTransitionState.None;
+
+        if (SceneManager.GetActiveScene().name == "Game" && AchievementManager.Instance)
+        {
+            AchievementManager.Instance.CollectAchievement("Tutorial");
+        }
     }
 }

@@ -5,5 +5,8 @@ public class Achievement : ScriptableObject
 {
     public Sprite sprite;
     public string title;
-    public string descritpion;
+    public string description;
+    public string hint;
+    public bool collected = false;
+    public int order = 0;
 }

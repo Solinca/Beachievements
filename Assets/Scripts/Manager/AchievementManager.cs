@@ -13,6 +13,7 @@ public class AchievementManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         } else
         {
             Destroy(gameObject);
@@ -20,12 +21,11 @@ public class AchievementManager : MonoBehaviour
 
         Object[] achievementList = Resources.LoadAll("ScriptableObjects/Achievements");
 
-        achievementDictionnary = achievementList.ToDictionary(x => x.name, x => (Achievement) x);
-    }
-
-    private void Start()
-    {
-        DisplayAchievement("Tutorial");
+        achievementDictionnary = achievementList.ToDictionary(x => x.name, x => {
+            Achievement achievement = (Achievement) x;
+            achievement.collected = false;
+            return achievement;
+        });
     }
 
     public Image achievementImage;
@@ -37,17 +37,34 @@ public class AchievementManager : MonoBehaviour
 
     private Dictionary<string, Achievement> achievementDictionnary;
     private Queue<string> queuedAchievements = new Queue<string>();
-    private List<string> collectedAchievements = new List<string>();
 
     public void CollectAchievement(string name)
     {
-        collectedAchievements.Add(name);
+        if (IsCollected(name))
+        {
+            return;
+        }
+
+        AddToCollection(name);
         DisplayAchievement(name);
     }
 
-    public bool IsCollected(string name)
+    private bool IsCollected(string name)
     {
-        return collectedAchievements.Contains(name);
+        return achievementDictionnary.ContainsKey(name) ? achievementDictionnary[name].collected : false;
+    }
+
+    public Dictionary<string, Achievement> GetAllAchievements()
+    {
+        return achievementDictionnary;
+    }
+
+    private void AddToCollection(string name)
+    {
+        if (achievementDictionnary.ContainsKey(name))
+        {
+            achievementDictionnary[name].collected = true;
+        }
     }
 
     private void DisplayAchievement(string name)
@@ -73,7 +90,7 @@ public class AchievementManager : MonoBehaviour
     {
         achievementImage.sprite = achievement.sprite;
         achievementTitleText.SetText(achievement.title);
-        achievementDescriptionText.SetText(achievement.descritpion);
+        achievementDescriptionText.SetText(achievement.description);
     }
 
     private Achievement RetrieveAchievement(string name)

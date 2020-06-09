@@ -4,7 +4,7 @@ public class OpenMenu : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && PauseMenuManager.Instance)
         {
             if (PauseMenuManager.Instance.IsOpened())
             {

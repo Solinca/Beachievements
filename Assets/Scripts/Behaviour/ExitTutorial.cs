@@ -8,7 +8,11 @@ public class ExitTutorial : MonoBehaviour
     {
         if (collision.gameObject.name == "Exit" && !hasExited)
         {
-            SceneTransitionManager.Instance.MoveToNextScene();
+            if (SceneTransitionManager.Instance)
+            {
+                SceneTransitionManager.Instance.MoveToNextScene();
+            }
+
             hasExited = true;
         }
     }

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: b41ac5616336f5e4690a01b2452fe4fd, type: 3}
   title: Leap of faith
-  descritpion: Wow you are willing to die for an emerald ? You should thank me for
+  description: Wow you are willing to die for an emerald ? You should thank me for
     saving ya.
+  hint: Collectible maniac and also lemming.
+  collected: 0
+  order: 4

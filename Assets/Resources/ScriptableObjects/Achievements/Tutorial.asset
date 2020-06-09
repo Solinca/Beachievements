@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 04cc69837b3d6bf418de12933f7b32b6, type: 3}
   title: Pro gamer
-  descritpion: You finised the tutorial ! I'm glad you didn't die in the process.
+  description: You finised the tutorial ! I'm glad you didn't die in the process.
+  hint: Actually it's very basic, you just need to finish the tutorial.
+  collected: 0
+  order: 0

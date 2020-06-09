@@ -20,6 +20,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public GameObject mainMenu;
     public GameObject optionsMenu;
+    public GameObject achievementMenu;
 
     public bool IsOpened()
     {
@@ -28,7 +29,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OpenMenu()
     {
-        if (SceneTransitionManager.Instance.IsProcessing())
+        if (SceneTransitionManager.Instance && SceneTransitionManager.Instance.IsProcessing())
         {
             return;
         }
@@ -36,6 +37,7 @@ public class PauseMenuManager : MonoBehaviour
         gameObject.SetActive(true);
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
+        achievementMenu.SetActive(false);
         Time.timeScale = 0f;
         Camera.main.GetComponent<AudioSource>().Pause();
     }
