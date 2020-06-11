@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec9f45f8b416294ca217fb1ba0ac88c, type: 3}
-  m_Name: StairwayToHeaven
+  m_Name: PalaceOfSuffering
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: cc823d40d2cc8ee489b0d547f24fb8d8, type: 3}
-  title: Stairway To Heaven
-  description: You beat the trial of the god of the sky !
-  hint: Wait for an elevator.
+  sprite: {fileID: 8633881525917383573, guid: 41e22e359845e544e92120380fc863e8, type: 3}
+  title: Palace of suffering
+  description: I'M GONNA KILL THE DEVELOPER
+  hint: If you see a dead end, it's there.
   collected: 0
-  order: 6
+  order: 7

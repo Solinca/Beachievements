@@ -17,4 +17,4 @@ MonoBehaviour:
   description: You collected every emeralds in the game. You are rich now!
   hint: Collect every shiny stuff in the game.
   collected: 0
-  order: 7
+  order: 8

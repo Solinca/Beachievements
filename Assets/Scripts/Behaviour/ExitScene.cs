@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ExitTutorial : MonoBehaviour
+public class ExitScene : MonoBehaviour
 {
     private bool hasExited = false;
 
