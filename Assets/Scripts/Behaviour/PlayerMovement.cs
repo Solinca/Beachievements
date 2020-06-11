@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRigidbody.position = new Vector2(playerRigidbody.position.x + input * speed, playerRigidbody.position.y);
+        playerRigidbody.transform.Translate(new Vector2(input * speed, 0));
     }
 
     private void OnCollisionStay2D(Collision2D collision)

@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff5219018dbab42ac694511cad6948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crabRigidbody: {fileID: 8175004282691171009}

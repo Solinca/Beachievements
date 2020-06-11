@@ -4,17 +4,17 @@ public class CrabMovement : MonoBehaviour
 {
     private readonly float speed = 0.05f;
     private float direction = 1f;
+    private Vector3 lastpos;
 
     private void FixedUpdate()
     {
-        transform.position = new Vector2(transform.position.x + speed * direction, transform.position.y);
-    }
+        transform.Translate(new Vector2(speed * direction, 0));
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name != "Player")
+        if (lastpos == transform.position)
         {
             direction *= -1f;
         }
+
+        lastpos = transform.position;
     }
 }
