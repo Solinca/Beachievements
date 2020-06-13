@@ -4,17 +4,17 @@ public class MoveWithPlatform : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "MovingPlatform")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("MovngPlatform"))
         {
-            transform.parent = collision.transform;
+            transform.SetParent(collision.transform);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "MovingPlatform")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("MovngPlatform"))
         {
-            transform.parent = null;
+            transform.SetParent(null);
         }
     }
 }
